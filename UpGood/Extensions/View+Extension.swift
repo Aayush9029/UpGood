@@ -8,6 +8,7 @@
 import SwiftUI
 
 // MARK: - Better Blur Modifier
+
 struct VisualEffectView: NSViewRepresentable {
     let material: NSVisualEffectView.Material
     let blendingMode: NSVisualEffectView.BlendingMode
@@ -24,4 +25,8 @@ struct VisualEffectView: NSViewRepresentable {
         visualEffectView.material = material
         visualEffectView.blendingMode = blendingMode
     }
+}
+
+extension VisualEffectView {
+    static let hudMaterial: VisualEffectView = .init(material: .hudWindow, blendingMode: .withinWindow)
 }

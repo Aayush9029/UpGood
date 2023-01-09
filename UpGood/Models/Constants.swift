@@ -11,10 +11,6 @@ struct Constants {
     static let githubURL = URL(string: "https://github.com/Aayush9029")!
     static let transferURL = URL(string: "https://transfer.sh")!
 
-    // MARK: - TODO
-
-//    static let versionURL = URL(string: ".json")!
-
     static let storeOptions: [Int] = Array(3 ..< 15)
     static let downloadsOptions: [Int] = [1, 2, 5, 10, 15, 20, 50, 80, 100, 200, 500, 1000]
 }

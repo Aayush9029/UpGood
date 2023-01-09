@@ -10,10 +10,10 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var upVM: UpGoodViewModel
 
-    let dayColumn = [
+    let daysColumn = [
         GridItem(.adaptive(minimum: 32))
     ]
-    let downloadColumn = [
+    let downloadsColumn = [
         GridItem(.adaptive(minimum: 48))
     ]
 
@@ -33,14 +33,12 @@ struct SettingsView: View {
                 )
                 .foregroundStyle(.secondary)
 
-                LazyVGrid(columns: dayColumn) {
+                LazyVGrid(columns: daysColumn) {
                     ForEach(Constants.storeOptions, id: \.self) { value in
                         SelectButton(
-                            value: String(value),
-                            color: .blue.opacity(upVM.maxDays == value ? 1 : 0.125)
-                        ) {
-                            upVM.maxDays = value
-                        }
+                            setValue: $upVM.maxDays,
+                            value: value
+                        )
                     }
                 }
             }
@@ -55,14 +53,12 @@ struct SettingsView: View {
                 )
                 .foregroundStyle(.secondary)
 
-                LazyVGrid(columns: downloadColumn) {
+                LazyVGrid(columns: downloadsColumn) {
                     ForEach(Constants.downloadsOptions, id: \.self) { option in
                         SelectButton(
-                            value: String(option),
-                            color: .blue.opacity(upVM.maxDownloads == option ? 1 : 0.125)
-                        ) {
-                            upVM.maxDownloads = option
-                        }
+                            setValue: $upVM.maxDownloads,
+                            value: option
+                        )
                     }
                 }
             }
@@ -92,26 +88,20 @@ struct SettingsView_Previews: PreviewProvider {
 // MARK: - Single Select Button
 
 struct SelectButton: View {
-    let value: String
-    let color: Color
-    let action: () -> Void
-
-    init(value: String, color: Color, action: @escaping () -> Void) {
-        self.value = value
-        self.color = color
-        self.action = action
-    }
-
+    @Binding var setValue: Int
+    let value: Int
     var body: some View {
         Text("\(value)")
             .bold()
             .frame(maxWidth: .greatestFiniteMagnitude)
             .padding(.vertical, 6)
-            .background(color)
+            .background(
+                .blue.opacity(setValue == value ? 1 : 0.125)
+            )
             .cornerRadius(4)
             .onTapGesture {
                 withAnimation {
-                    action()
+                    setValue = value
                 }
             }
     }

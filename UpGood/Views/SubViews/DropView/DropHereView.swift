@@ -26,10 +26,9 @@ struct DropHereView: View {
                 .multilineTextAlignment(.center)
             Spacer()
         }
+        .frame(maxWidth: .greatestFiniteMagnitude)
         .padding()
-        .background(
-            VisualEffectView(material: isHovered ? .menu : .hudWindow, blendingMode: .behindWindow)
-        )
+        .background(VisualEffectView.hudMaterial)
         .cornerRadius(16)
         .overlay(
             RoundedRectangle(cornerRadius: 16)

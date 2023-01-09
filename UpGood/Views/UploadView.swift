@@ -26,12 +26,14 @@ struct UploadView: View {
             Button {
                 withAnimation { upVM.currentPage = .settings }
             } label: {
-                Label("Configure Upload Options", systemImage: "gear")
-                    .foregroundStyle(.secondary)
+                Label(
+                    "Configure Upload Options", systemImage: "gear"
+                )
+                .foregroundStyle(.secondary)
             }
             .buttonStyle(.borderless)
-            
-        }.padding(.vertical)
+
+        }.padding()
             .onChange(of: localPathURL) { _ in
                 guard let localPathURL = localPathURL else {
                     return
@@ -53,6 +55,6 @@ struct UploadView_Previews: PreviewProvider {
     static var previews: some View {
         UploadView()
             .environmentObject(UpGoodViewModel())
-            .frame(width: 280, height: 360)
+//            .frame(width: 280, height: 360)
     }
 }
