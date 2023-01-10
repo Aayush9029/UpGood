@@ -19,4 +19,5 @@ enum AppStorageStrings {
     static let maxDownloads = "com.aayush.opensource.upgood.maxdownload"
     static let maxDays = "com.aayush.opensource.upgood.maxdays"
     static let lastUploadURL = "com.aayush.opensource.upgood.lasturl"
+    static let showMenuBarExtra = "com.aayush.opensource.upgood.showMenuBarExtra"
 }

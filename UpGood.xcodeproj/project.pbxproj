@@ -11,7 +11,6 @@
 		C2571D0A296C9580001BC130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2571D09296C9580001BC130 /* Assets.xcassets */; };
 		C2571D0D296C9580001BC130 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2571D0C296C9580001BC130 /* Preview Assets.xcassets */; };
 		C2571D29296C9604001BC130 /* FileUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D15296C95E2001BC130 /* FileUploader.swift */; };
-		C2571D2A296C9604001BC130 /* DropDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D17296C95E2001BC130 /* DropDelegate.swift */; };
 		C2571D2B296C9604001BC130 /* NSOpenPanel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D19296C95E2001BC130 /* NSOpenPanel+Extensions.swift */; };
 		C2571D2C296C9604001BC130 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D1A296C95E2001BC130 /* View+Extension.swift */; };
 		C2571D2D296C9604001BC130 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D1C296C95E2001BC130 /* Constants.swift */; };
@@ -23,6 +22,7 @@
 		C2571D34296C9604001BC130 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D25296C95E2001BC130 /* UploadView.swift */; };
 		C2571D35296C9604001BC130 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D26296C95E2001BC130 /* MainView.swift */; };
 		C2571D3C296CA5C2001BC130 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D3B296CA5C2001BC130 /* NetworkManager.swift */; };
+		C2C68767296DF4AF00FDA1D3 /* CustomLongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68766296DF4AF00FDA1D3 /* CustomLongButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,6 @@
 		C2571D0C296C9580001BC130 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C2571D0E296C9580001BC130 /* UpGood.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UpGood.entitlements; sourceTree = "<group>"; };
 		C2571D15296C95E2001BC130 /* FileUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUploader.swift; sourceTree = "<group>"; };
-		C2571D17296C95E2001BC130 /* DropDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDelegate.swift; sourceTree = "<group>"; };
 		C2571D19296C95E2001BC130 /* NSOpenPanel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+Extensions.swift"; sourceTree = "<group>"; };
 		C2571D1A296C95E2001BC130 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		C2571D1C296C95E2001BC130 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		C2571D26296C95E2001BC130 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C2571D28296C95E2001BC130 /* UpGoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpGoodViewModel.swift; sourceTree = "<group>"; };
 		C2571D3B296CA5C2001BC130 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C2C68766296DF4AF00FDA1D3 /* CustomLongButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLongButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +81,6 @@
 				C2571D27296C95E2001BC130 /* ViewModels */,
 				C2571D3A296CA5B6001BC130 /* API */,
 				C2571D1B296C95E2001BC130 /* Models */,
-				C2571D16296C95E2001BC130 /* Delegates */,
 				C2571D18296C95E2001BC130 /* Extensions */,
 				C2571D09296C9580001BC130 /* Assets.xcassets */,
 				C2571D0E296C9580001BC130 /* UpGood.entitlements */,
@@ -96,14 +95,6 @@
 				C2571D0C296C9580001BC130 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		C2571D16296C95E2001BC130 /* Delegates */ = {
-			isa = PBXGroup;
-			children = (
-				C2571D17296C95E2001BC130 /* DropDelegate.swift */,
-			);
-			path = Delegates;
 			sourceTree = "<group>";
 		};
 		C2571D18296C95E2001BC130 /* Extensions */ = {
@@ -140,6 +131,7 @@
 				C2571D20296C95E2001BC130 /* TitleView.swift */,
 				C2571D24296C95E2001BC130 /* InputView.swift */,
 				C2571D22296C95E2001BC130 /* SelectFolderButton.swift */,
+				C2C68766296DF4AF00FDA1D3 /* CustomLongButton.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -147,8 +139,8 @@
 		C2571D27296C95E2001BC130 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				C2571D15296C95E2001BC130 /* FileUploader.swift */,
 				C2571D28296C95E2001BC130 /* UpGoodViewModel.swift */,
+				C2571D15296C95E2001BC130 /* FileUploader.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -232,7 +224,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2571D29296C9604001BC130 /* FileUploader.swift in Sources */,
-				C2571D2A296C9604001BC130 /* DropDelegate.swift in Sources */,
 				C2571D2B296C9604001BC130 /* NSOpenPanel+Extensions.swift in Sources */,
 				C2571D2C296C9604001BC130 /* View+Extension.swift in Sources */,
 				C2571D2D296C9604001BC130 /* Constants.swift in Sources */,
@@ -242,6 +233,7 @@
 				C2571D31296C9604001BC130 /* SelectFolderButton.swift in Sources */,
 				C2571D33296C9604001BC130 /* InputView.swift in Sources */,
 				C2571D3C296CA5C2001BC130 /* NetworkManager.swift in Sources */,
+				C2C68767296DF4AF00FDA1D3 /* CustomLongButton.swift in Sources */,
 				C2571D34296C9604001BC130 /* UploadView.swift in Sources */,
 				C2571D35296C9604001BC130 /* MainView.swift in Sources */,
 				C2571D06296C9580001BC130 /* UpGoodApp.swift in Sources */,

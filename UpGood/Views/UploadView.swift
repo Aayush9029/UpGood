@@ -23,17 +23,13 @@ struct UploadView: View {
 
             InputView()
                 .environmentObject(upVM)
-
-            Button {
+            Spacer()
+            CustomLongButton(
+                "Configure Upload Options",
+                symbol: "gearshape"
+            ) {
                 withAnimation { upVM.currentPage = .settings }
-            } label: {
-                Label(
-                    "Configure Upload Options",
-                    systemImage: "gear"
-                )
-                .foregroundStyle(.secondary)
             }
-            .buttonStyle(.borderless)
 
         }.padding()
             .onChange(of: localPathURL) { _ in

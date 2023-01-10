@@ -15,6 +15,7 @@ struct InputView: View {
             ZStack {
                 if let path = upVM.localPathURL {
                     ZStack {
+//                        TODO: Replace using custom METAL CODE BG
                         Image("cloud")
                             .resizable()
                             .blur(radius: 32)

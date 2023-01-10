@@ -19,6 +19,7 @@ struct SettingsView: View {
 
     var body: some View {
         VStack {
+            Spacer()
             TitleView(
                 title: "UpGood",
                 subtitle: "Settings",
@@ -62,17 +63,15 @@ struct SettingsView: View {
                     }
                 }
             }
-
-            Button {
-                withAnimation {
-                    upVM.currentPage = .upload
-                }
-            } label: {
-                Label("Save Upload Options", systemImage: "checkmark.circle")
+            Spacer()
+            CustomLongButton(
+                "Save Upload Options",
+                symbol: "checkmark.circle"
+            ) {
+                withAnimation { upVM.currentPage = .upload }
             }
-            .buttonStyle(.plain)
-            .padding(.top, 8)
-        }.padding()
+        }
+        .padding()
     }
 }
 
