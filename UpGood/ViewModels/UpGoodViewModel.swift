@@ -13,8 +13,8 @@ class UpGoodViewModel: ObservableObject {
     @Published var localPathURL: URL?
     @Published var currentPage: CurrentPage = .upload
 
-    @AppStorage(AppStorageStrings.maxDays) var maxDays: Int = 5
-    @AppStorage(AppStorageStrings.maxDownloads) var maxDownloads: Int = 5
+    @AppStorage(AppStorageStrings.maxDays) var maxDays: Int = 4
+    @AppStorage(AppStorageStrings.maxDownloads) var maxDownloads: Int = 10
 //    @AppStorage(AppStorageStrings.lastUploadURL) var lastUploadURL: String = ""
 
     enum CurrentPage {

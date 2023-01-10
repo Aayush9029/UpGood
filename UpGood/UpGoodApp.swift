@@ -33,7 +33,7 @@ struct UpGoodApp: App {
                 HStack {
                     Toggle(isOn: $showMenuBarExtra) {
                         Label(
-                            "Show Menu Bar Extra",
+                            "Show Menu Bar Icon",
                             systemImage: "menubar.arrow.up.rectangle"
                         )
                     }
