@@ -15,7 +15,7 @@
 		C2571D2C296C9604001BC130 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D1A296C95E2001BC130 /* View+Extension.swift */; };
 		C2571D2D296C9604001BC130 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D1C296C95E2001BC130 /* Constants.swift */; };
 		C2571D2E296C9604001BC130 /* UpGoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D28296C95E2001BC130 /* UpGoodViewModel.swift */; };
-		C2571D2F296C9604001BC130 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D1E296C95E2001BC130 /* SettingsView.swift */; };
+		C2571D2F296C9604001BC130 /* UploadOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D1E296C95E2001BC130 /* UploadOptionsView.swift */; };
 		C2571D30296C9604001BC130 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D20296C95E2001BC130 /* TitleView.swift */; };
 		C2571D31296C9604001BC130 /* SelectFolderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D22296C95E2001BC130 /* SelectFolderButton.swift */; };
 		C2571D33296C9604001BC130 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D24296C95E2001BC130 /* InputView.swift */; };
@@ -35,7 +35,7 @@
 		C2571D19296C95E2001BC130 /* NSOpenPanel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+Extensions.swift"; sourceTree = "<group>"; };
 		C2571D1A296C95E2001BC130 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		C2571D1C296C95E2001BC130 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C2571D1E296C95E2001BC130 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C2571D1E296C95E2001BC130 /* UploadOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadOptionsView.swift; sourceTree = "<group>"; };
 		C2571D20296C95E2001BC130 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		C2571D22296C95E2001BC130 /* SelectFolderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFolderButton.swift; sourceTree = "<group>"; };
 		C2571D24296C95E2001BC130 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 			children = (
 				C2571D26296C95E2001BC130 /* MainView.swift */,
 				C2571D25296C95E2001BC130 /* UploadView.swift */,
+				C2571D1E296C95E2001BC130 /* UploadOptionsView.swift */,
 				C2571D1F296C95E2001BC130 /* SubViews */,
-				C2571D1E296C95E2001BC130 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -228,7 +228,7 @@
 				C2571D2C296C9604001BC130 /* View+Extension.swift in Sources */,
 				C2571D2D296C9604001BC130 /* Constants.swift in Sources */,
 				C2571D2E296C9604001BC130 /* UpGoodViewModel.swift in Sources */,
-				C2571D2F296C9604001BC130 /* SettingsView.swift in Sources */,
+				C2571D2F296C9604001BC130 /* UploadOptionsView.swift in Sources */,
 				C2571D30296C9604001BC130 /* TitleView.swift in Sources */,
 				C2571D31296C9604001BC130 /* SelectFolderButton.swift in Sources */,
 				C2571D33296C9604001BC130 /* InputView.swift in Sources */,

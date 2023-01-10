@@ -16,8 +16,8 @@ struct MainView: View {
             case .upload:
                 UploadView()
                     .environmentObject(upVM)
-            case .settings:
-                SettingsView()
+            case .options:
+                UploadOptionsView()
                     .environmentObject(upVM)
             }
         }.transition(.slide)

@@ -19,7 +19,7 @@ class UpGoodViewModel: ObservableObject {
 
     enum CurrentPage {
         case upload
-        case settings
+        case options
     }
 
     init() {}

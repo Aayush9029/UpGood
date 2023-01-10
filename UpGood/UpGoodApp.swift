@@ -29,7 +29,20 @@ struct UpGoodApp: App {
         .menuBarExtraStyle(.window)
 
         Settings {
-            Text("Settings")
+            List {
+                HStack {
+                    Toggle(isOn: $showMenuBarExtra) {
+                        Label(
+                            "Show Menu Bar Extra",
+                            systemImage: "menubar.arrow.up.rectangle"
+                        )
+                    }
+                    .toggleStyle(.switch)
+                }
+                Text("Other Settings...")
+                    .foregroundStyle(.tertiary)
+            }
+            .frame(minWidth: 420, minHeight: 420)
         }
     }
 }

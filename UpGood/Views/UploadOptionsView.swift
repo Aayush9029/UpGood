@@ -1,5 +1,5 @@
 //
-//  SettingsView.swift
+//  UploadOptionsView.swift
 //  UpGood
 //
 //  Created by Aayush Pokharel on 2022-05-31.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct UploadOptionsView: View {
     @EnvironmentObject var upVM: UpGoodViewModel
 
     let daysColumn = [
@@ -75,9 +75,9 @@ struct SettingsView: View {
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
+struct UploadOptionsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        UploadOptionsView()
             .padding(.top, 6)
             .frame(width: 280, height: 360)
             .environmentObject(UpGoodViewModel())

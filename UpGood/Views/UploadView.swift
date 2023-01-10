@@ -28,7 +28,7 @@ struct UploadView: View {
                 "Configure Upload Options",
                 symbol: "gearshape"
             ) {
-                withAnimation { upVM.currentPage = .settings }
+                withAnimation { upVM.currentPage = .options }
             }
 
         }.padding()
