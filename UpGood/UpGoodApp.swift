@@ -9,8 +9,10 @@ import SwiftUI
 
 @main
 struct UpGoodApp: App {
+    @AppStorage("showMenuBarExtra") private var showMenuBarExtra = true
+
     var body: some Scene {
-        MenuBarExtra {
+        MenuBarExtra(isInserted: $showMenuBarExtra) {
             MainView()
                 .frame(width: 280)
         } label: {

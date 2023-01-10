@@ -1,5 +1,5 @@
 //
-//  DropHereView.swift
+//  SelectFolderButton.swift
 //  UpGood
 //
 //  Created by Aayush Pokharel on 2022-04-19.
@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-struct DropHereView: View {
+struct SelectFolderButton: View {
     @State private var isHovered: Bool = false
     var body: some View {
         VStack {
             Spacer()
-            Image(systemName: "icloud.and.arrow.up")
+            Image(systemName: "folder")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 80)
                 .foregroundStyle(isHovered ? .secondary : .tertiary)
                 .padding()
 
-            Text("Drag and drop a file or click to browse.")
+            Text("Click to add files and folders.")
                 .font(.title3)
                 .fontWeight(.medium)
                 .foregroundStyle(isHovered ? .secondary : .tertiary)
@@ -47,6 +47,6 @@ struct DropHereView: View {
 
 struct DropHereView_Previews: PreviewProvider {
     static var previews: some View {
-        DropHereView()
+        SelectFolderButton()
     }
 }

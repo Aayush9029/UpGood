@@ -8,11 +8,11 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct UrlsDropDelegate: DropDelegate {
+struct UrlsDropDelegate1: DropDelegate {
     @Binding var localPathURL: URL?
 
     func performDrop(info: DropInfo) -> Bool {
-        guard info.hasItemsConforming(to: [UTType.url, UTType.fileURL, UTType.folder]) else {
+        guard info.hasItemsConforming(to: [UTType.url, UTType.fileURL, UTType.folder, UTType.zip]) else {
             return false
         }
 

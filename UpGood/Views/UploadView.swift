@@ -21,7 +21,8 @@ struct UploadView: View {
                 url: Constants.transferURL
             )
 
-            InputView(localPathURL: $localPathURL)
+            InputView()
+                .environmentObject(upVM)
 
             Button {
                 withAnimation { upVM.currentPage = .settings }
@@ -54,7 +55,7 @@ struct UploadView: View {
 struct UploadView_Previews: PreviewProvider {
     static var previews: some View {
         UploadView()
-            .environmentObject(UpGoodViewModel())
-//            .frame(width: 280, height: 360)
+            .environmentObject(UpGoodViewModel.previewProvider)
+
     }
 }

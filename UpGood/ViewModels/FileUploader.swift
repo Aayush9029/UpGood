@@ -34,7 +34,7 @@ class FileUploader: NSObject {
             cachePolicy: .reloadIgnoringLocalCacheData
         )
 
-        request.httpMethod = "POST"
+        request.httpMethod = "PUT"
         request.addValue("\(maxDays)", forHTTPHeaderField: "Max-Days")
         request.addValue("\(maxDownloads)", forHTTPHeaderField: "Max-Downloads")
 

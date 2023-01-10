@@ -18,7 +18,7 @@
 		C2571D2E296C9604001BC130 /* UpGoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D28296C95E2001BC130 /* UpGoodViewModel.swift */; };
 		C2571D2F296C9604001BC130 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D1E296C95E2001BC130 /* SettingsView.swift */; };
 		C2571D30296C9604001BC130 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D20296C95E2001BC130 /* TitleView.swift */; };
-		C2571D31296C9604001BC130 /* DropHereView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D22296C95E2001BC130 /* DropHereView.swift */; };
+		C2571D31296C9604001BC130 /* SelectFolderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D22296C95E2001BC130 /* SelectFolderButton.swift */; };
 		C2571D33296C9604001BC130 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D24296C95E2001BC130 /* InputView.swift */; };
 		C2571D34296C9604001BC130 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D25296C95E2001BC130 /* UploadView.swift */; };
 		C2571D35296C9604001BC130 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D26296C95E2001BC130 /* MainView.swift */; };
@@ -38,7 +38,7 @@
 		C2571D1C296C95E2001BC130 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C2571D1E296C95E2001BC130 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C2571D20296C95E2001BC130 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
-		C2571D22296C95E2001BC130 /* DropHereView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropHereView.swift; sourceTree = "<group>"; };
+		C2571D22296C95E2001BC130 /* SelectFolderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFolderButton.swift; sourceTree = "<group>"; };
 		C2571D24296C95E2001BC130 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		C2571D25296C95E2001BC130 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		C2571D26296C95E2001BC130 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -128,8 +128,8 @@
 			children = (
 				C2571D26296C95E2001BC130 /* MainView.swift */,
 				C2571D25296C95E2001BC130 /* UploadView.swift */,
-				C2571D1E296C95E2001BC130 /* SettingsView.swift */,
 				C2571D1F296C95E2001BC130 /* SubViews */,
+				C2571D1E296C95E2001BC130 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -138,18 +138,10 @@
 			isa = PBXGroup;
 			children = (
 				C2571D20296C95E2001BC130 /* TitleView.swift */,
-				C2571D21296C95E2001BC130 /* DropView */,
+				C2571D24296C95E2001BC130 /* InputView.swift */,
+				C2571D22296C95E2001BC130 /* SelectFolderButton.swift */,
 			);
 			path = SubViews;
-			sourceTree = "<group>";
-		};
-		C2571D21296C95E2001BC130 /* DropView */ = {
-			isa = PBXGroup;
-			children = (
-				C2571D22296C95E2001BC130 /* DropHereView.swift */,
-				C2571D24296C95E2001BC130 /* InputView.swift */,
-			);
-			path = DropView;
 			sourceTree = "<group>";
 		};
 		C2571D27296C95E2001BC130 /* ViewModels */ = {
@@ -247,7 +239,7 @@
 				C2571D2E296C9604001BC130 /* UpGoodViewModel.swift in Sources */,
 				C2571D2F296C9604001BC130 /* SettingsView.swift in Sources */,
 				C2571D30296C9604001BC130 /* TitleView.swift in Sources */,
-				C2571D31296C9604001BC130 /* DropHereView.swift in Sources */,
+				C2571D31296C9604001BC130 /* SelectFolderButton.swift in Sources */,
 				C2571D33296C9604001BC130 /* InputView.swift in Sources */,
 				C2571D3C296CA5C2001BC130 /* NetworkManager.swift in Sources */,
 				C2571D34296C9604001BC130 /* UploadView.swift in Sources */,
