@@ -28,7 +28,8 @@ struct UploadView: View {
                 withAnimation { upVM.currentPage = .settings }
             } label: {
                 Label(
-                    "Configure Upload Options", systemImage: "gear"
+                    "Configure Upload Options",
+                    systemImage: "gear"
                 )
                 .foregroundStyle(.secondary)
             }
@@ -41,7 +42,9 @@ struct UploadView: View {
                 }
                 Task {
                     do {
-                        let pub = try await upVM.fileUploader.uploadFile(at: localPathURL)
+                        let pub = try await upVM.fileUploader.uploadFile(
+                            at: localPathURL
+                        )
                         print(pub.1)
                     }
                     catch {
@@ -55,7 +58,7 @@ struct UploadView: View {
 struct UploadView_Previews: PreviewProvider {
     static var previews: some View {
         UploadView()
+            .frame(width: 320, height: 320)
             .environmentObject(UpGoodViewModel.previewProvider)
-
     }
 }

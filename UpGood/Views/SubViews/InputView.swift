@@ -44,20 +44,7 @@ struct InputView: View {
 
                                 Spacer()
 
-                                HStack {
-                                    ZStack(alignment: .leading) {
-                                        RoundedRectangle(cornerRadius: 12)
-                                            .frame(height: 4)
-                                            .foregroundStyle(.gray)
-
-                                        RoundedRectangle(cornerRadius: 12)
-                                            .frame(height: 4)
-                                            .foregroundStyle(.blue)
-                                            .frame(width: 64)
-                                    }
-                                    Text("29.24%")
-                                        .font(.caption2)
-                                }
+                                CustomProgressView(progress: 0.23)
                             }
                             .padding()
                             .font(.title3)
@@ -94,10 +81,33 @@ struct InputView: View {
 struct InputView_Previews: PreviewProvider {
     static var previews: some View {
         InputView()
-            .frame(width: 220)
+            .frame(width: 320, height: 320)
             .environmentObject(
                 UpGoodViewModel.previewProvider
             )
             .padding()
+    }
+}
+
+struct CustomProgressView: View {
+    let progress: Double
+
+    var body: some View {
+        HStack {
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    RoundedRectangle(cornerRadius: 12)
+                        .frame(width: geometry.size.width)
+                        .foregroundStyle(.gray)
+
+                    RoundedRectangle(cornerRadius: 12)
+                        .foregroundStyle(.blue)
+                        .frame(width: progress * geometry.size.width)
+                }
+            }.frame(height: 4)
+
+            Text(Int(progress * 100).formatted(.percent))
+                .font(.caption2)
+        }
     }
 }
