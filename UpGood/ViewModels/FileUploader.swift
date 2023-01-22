@@ -8,14 +8,14 @@
 import Combine
 import SwiftUI
 
-class FileUploader: NSObject {
+class FileUploader: NSObject, ObservableObject {
     @AppStorage(AppStorageStrings.maxDays) var maxDays: Int = 5
     @AppStorage(AppStorageStrings.maxDownloads) var maxDownloads: Int = 5
     @AppStorage(AppStorageStrings.lastUploadURL) var lastUploadURL: String = ""
 
+    @Published var progress: Double = 0.0
     typealias Percentage = Double
     typealias Publisher = AnyPublisher<Percentage, Error>
-
     private typealias Subject = CurrentValueSubject<Percentage, Error>
 
     private lazy var urlSession = URLSession(
@@ -57,5 +57,6 @@ extension FileUploader: URLSessionTaskDelegate {
         totalBytesExpectedToSend: Int64
     ) {
         print("fractionCompleted  : \(Int(Float(totalBytesSent) / Float(totalBytesExpectedToSend) * 100))")
+        progress = Double(totalBytesSent / totalBytesExpectedToSend)
     }
 }
