@@ -1,7 +1,7 @@
 <div align="center">
 
-| :warning:  | Work In Progress,  UpGood is currently in development and not yet ready for use. Check back later for alpha release
-| - |:-|
+> **Warning**
+Work In Progress,  UpGood is currently in development and not yet ready for use. Check back later for alpha release
 
 
 
