@@ -5,11 +5,9 @@
 //  Created by Aayush Pokharel on 2022-05-31.
 //
 
-import Combine
 import SwiftUI
 
 struct UploadView: View {
-    @State var localPathURL: URL?
     @EnvironmentObject var upVM: UpGoodViewModel
 
     var body: some View {
@@ -17,44 +15,41 @@ struct UploadView: View {
             TitleView(
                 title: "Upload",
                 subtitle: "File",
-                urlTitle: "Powered by transfer.sh",
-                url: Constants.transferURL
+                urlTitle: upVM.uploadMode == .temporary
+                    ? "Powered by Litterbox"
+                    : "Powered by Catbox",
+                url: upVM.uploadMode == .temporary
+                    ? Constants.litterboxURL
+                    : Constants.catboxURL
             )
 
             InputView()
                 .environmentObject(upVM)
             Spacer()
-            CustomLongButton(
-                "Configure Upload Options",
-                symbol: "gearshape"
-            ) {
-                withAnimation { upVM.currentPage = .options }
-            }
 
-        }.padding()
-            .onChange(of: localPathURL) { _ in
-                guard let localPathURL = localPathURL else {
-                    return
+            HStack(spacing: 8) {
+                CustomLongButton(
+                    upVM.uploadMode == .temporary ? "Temporary" : "Permanent",
+                    symbol: upVM.uploadMode == .temporary ? "clock" : "infinity"
+                ) {
+                    upVM.uploadMode = upVM.uploadMode == .temporary ? .permanent : .temporary
                 }
-                Task {
-                    do {
-                        let pub = try await upVM.fileUploader.uploadFile(
-                            at: localPathURL
-                        )
-                        print(pub.1)
-                    }
-                    catch {
-                        print(error.localizedDescription)
-                    }
+
+                CustomLongButton(
+                    "Settings",
+                    symbol: "gearshape"
+                ) {
+                    withAnimation { upVM.currentPage = .options }
                 }
             }
+        }.padding()
     }
 }
 
 struct UploadView_Previews: PreviewProvider {
     static var previews: some View {
         UploadView()
-            .frame(width: 320, height: 320)
+            .frame(width: 320, height: 360)
             .environmentObject(UpGoodViewModel.previewProvider)
     }
 }

@@ -10,13 +10,6 @@ import SwiftUI
 struct UploadOptionsView: View {
     @EnvironmentObject var upVM: UpGoodViewModel
 
-    let daysColumn = [
-        GridItem(.adaptive(minimum: 32))
-    ]
-    let downloadsColumn = [
-        GridItem(.adaptive(minimum: 48))
-    ]
-
     var body: some View {
         VStack {
             Spacer()
@@ -27,45 +20,54 @@ struct UploadOptionsView: View {
                 url: Constants.githubURL
             )
 
-            VStack(alignment: .leading) {
-                Label(
-                    "Store files for \(upVM.maxDays) days",
-                    systemImage: "server.rack"
-                )
-                .foregroundStyle(.secondary)
+            VStack(alignment: .leading, spacing: 12) {
+                Label("Upload Mode", systemImage: "arrow.up.circle")
+                    .foregroundStyle(.secondary)
 
-                LazyVGrid(columns: daysColumn) {
-                    ForEach(Constants.storeOptions, id: \.self) { value in
-                        SelectButton(
-                            setValue: $upVM.maxDays,
-                            value: value
-                        )
+                HStack(spacing: 8) {
+                    ForEach(UploadMode.allCases) { mode in
+                        SelectStringButton(
+                            label: mode.label,
+                            isSelected: upVM.uploadMode == mode
+                        ) {
+                            upVM.uploadMode = mode
+                        }
                     }
                 }
+
+                Text(upVM.uploadMode.subtitle)
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
             }
             .padding(.top, 8)
 
-            Divider()
+            if upVM.uploadMode == .temporary {
+                Divider()
 
-            VStack(alignment: .leading) {
-                Label(
-                    "Expire after \(upVM.maxDownloads) downloads",
-                    systemImage: "timer"
-                )
-                .foregroundStyle(.secondary)
+                VStack(alignment: .leading, spacing: 12) {
+                    Label(
+                        "Expires after \(upVM.expiryOption.label)",
+                        systemImage: "timer"
+                    )
+                    .foregroundStyle(.secondary)
 
-                LazyVGrid(columns: downloadsColumn) {
-                    ForEach(Constants.downloadsOptions, id: \.self) { option in
-                        SelectButton(
-                            setValue: $upVM.maxDownloads,
-                            value: option
-                        )
+                    HStack(spacing: 8) {
+                        ForEach(ExpiryOption.allCases) { option in
+                            SelectStringButton(
+                                label: option.label,
+                                isSelected: upVM.expiryOption == option
+                            ) {
+                                upVM.expiryOption = option
+                            }
+                        }
                     }
                 }
             }
+
             Spacer()
+
             CustomLongButton(
-                "Save Upload Options",
+                "Done",
                 symbol: "checkmark.circle"
             ) {
                 withAnimation { upVM.currentPage = .upload }
@@ -84,24 +86,23 @@ struct UploadOptionsView_Previews: PreviewProvider {
     }
 }
 
-// MARK: - Single Select Button
+// MARK: - Select Button
 
-struct SelectButton: View {
-    @Binding var setValue: Int
-    let value: Int
+struct SelectStringButton: View {
+    let label: String
+    let isSelected: Bool
+    let action: () -> Void
+
     var body: some View {
-        Text("\(value)")
+        Text(label)
+            .font(.caption)
             .bold()
             .frame(maxWidth: .greatestFiniteMagnitude)
             .padding(.vertical, 6)
-            .background(
-                .blue.opacity(setValue == value ? 1 : 0.125)
-            )
+            .background(.blue.opacity(isSelected ? 1 : 0.125))
             .cornerRadius(4)
             .onTapGesture {
-                withAnimation {
-                    setValue = value
-                }
+                withAnimation { action() }
             }
     }
 }

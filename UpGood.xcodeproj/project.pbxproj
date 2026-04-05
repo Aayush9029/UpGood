@@ -21,7 +21,7 @@
 		C2571D33296C9604001BC130 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D24296C95E2001BC130 /* InputView.swift */; };
 		C2571D34296C9604001BC130 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D25296C95E2001BC130 /* UploadView.swift */; };
 		C2571D35296C9604001BC130 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D26296C95E2001BC130 /* MainView.swift */; };
-		C2571D3C296CA5C2001BC130 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2571D3B296CA5C2001BC130 /* NetworkManager.swift */; };
+
 		C2C68767296DF4AF00FDA1D3 /* CustomLongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C68766296DF4AF00FDA1D3 /* CustomLongButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,7 @@
 		C2571D25296C95E2001BC130 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
 		C2571D26296C95E2001BC130 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C2571D28296C95E2001BC130 /* UpGoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpGoodViewModel.swift; sourceTree = "<group>"; };
-		C2571D3B296CA5C2001BC130 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+
 		C2C68766296DF4AF00FDA1D3 /* CustomLongButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLongButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,7 +148,6 @@
 		C2571D3A296CA5B6001BC130 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				C2571D3B296CA5C2001BC130 /* NetworkManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -232,7 +231,6 @@
 				C2571D30296C9604001BC130 /* TitleView.swift in Sources */,
 				C2571D31296C9604001BC130 /* SelectFolderButton.swift in Sources */,
 				C2571D33296C9604001BC130 /* InputView.swift in Sources */,
-				C2571D3C296CA5C2001BC130 /* NetworkManager.swift in Sources */,
 				C2C68767296DF4AF00FDA1D3 /* CustomLongButton.swift in Sources */,
 				C2571D34296C9604001BC130 /* UploadView.swift in Sources */,
 				C2571D35296C9604001BC130 /* MainView.swift in Sources */,

@@ -33,8 +33,8 @@ struct TitleView_Previews: PreviewProvider {
         TitleView(
             title: "Upload",
             subtitle: "Files",
-            urlTitle: "Powered by transfer.sh",
-            url: URL(string: "https://transfer.sh")!
+            urlTitle: "Powered by Litterbox",
+            url: URL(string: "https://litterbox.catbox.moe")!
         )
         .padding()
     }
