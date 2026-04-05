@@ -2,24 +2,74 @@
 //  Constants.swift
 //  UpGood
 //
-//  Created by Aayush Pokharel on 2022-05-31.
-//
 
+import CasePaths
 import Foundation
+import IdentifiedCollections
+import Sharing
 
-struct Constants {
-    static let githubURL = URL(string: "https://github.com/Aayush9029/UpGood")!
-    static let litterboxURL = URL(string: "https://litterbox.catbox.moe")!
-    static let catboxURL = URL(string: "https://catbox.moe")!
+// MARK: - API Endpoints
 
-    static let litterboxAPI = URL(string: "https://litterbox.catbox.moe/resources/internals/api.php")!
-    static let catboxAPI = URL(string: "https://catbox.moe/user/api.php")!
-
-    static let litterboxMaxSize: Int64 = 1_000_000_000 // 1 GB
-    static let catboxMaxSize: Int64 = 200_000_000 // 200 MB
+enum API {
+    static let litterbox = URL(string: "https://litterbox.catbox.moe/resources/internals/api.php")!
+    static let catbox = URL(string: "https://catbox.moe/user/api.php")!
 }
 
-enum ExpiryOption: String, CaseIterable, Identifiable {
+enum Links {
+    static let github = URL(string: "https://github.com/Aayush9029/UpGood")!
+    static let litterbox = URL(string: "https://litterbox.catbox.moe")!
+    static let catbox = URL(string: "https://catbox.moe")!
+}
+
+// MARK: - Upload Mode
+
+@CasePathable
+enum UploadMode: String, CaseIterable, Identifiable, Codable, Sendable {
+    case temporary
+    case permanent
+
+    var id: String { rawValue }
+
+    var label: String {
+        switch self {
+        case .temporary: "Temporary"
+        case .permanent: "Permanent"
+        }
+    }
+
+    var subtitle: String {
+        switch self {
+        case .temporary: "Up to 1 GB via Litterbox"
+        case .permanent: "Up to 200 MB via Catbox"
+        }
+    }
+
+    var maxBytes: Int64 {
+        switch self {
+        case .temporary: 1_000_000_000
+        case .permanent: 200_000_000
+        }
+    }
+
+    var serviceURL: URL {
+        switch self {
+        case .temporary: Links.litterbox
+        case .permanent: Links.catbox
+        }
+    }
+
+    var apiURL: URL {
+        switch self {
+        case .temporary: API.litterbox
+        case .permanent: API.catbox
+        }
+    }
+}
+
+// MARK: - Expiry Option
+
+@CasePathable
+enum ExpiryOption: String, CaseIterable, Identifiable, Codable, Sendable {
     case oneHour = "1h"
     case twelveHours = "12h"
     case oneDay = "24h"
@@ -29,45 +79,60 @@ enum ExpiryOption: String, CaseIterable, Identifiable {
 
     var label: String {
         switch self {
-        case .oneHour: return "1 Hour"
-        case .twelveHours: return "12 Hours"
-        case .oneDay: return "1 Day"
-        case .threeDays: return "3 Days"
+        case .oneHour: "1 Hour"
+        case .twelveHours: "12 Hours"
+        case .oneDay: "1 Day"
+        case .threeDays: "3 Days"
+        }
+    }
+
+    var timeInterval: TimeInterval {
+        switch self {
+        case .oneHour: 3600
+        case .twelveHours: 43200
+        case .oneDay: 86400
+        case .threeDays: 259200
         }
     }
 }
 
-enum UploadMode: String, CaseIterable, Identifiable {
-    case temporary
-    case permanent
+// MARK: - Upload Record (persisted history)
 
-    var id: String { rawValue }
+struct UploadRecord: Codable, Identifiable, Equatable, Sendable {
+    let id: UUID
+    let fileName: String
+    let url: String
+    let mode: UploadMode
+    let expiry: ExpiryOption?
+    let uploadedAt: Date
 
-    var label: String {
-        switch self {
-        case .temporary: return "Temporary"
-        case .permanent: return "Permanent"
-        }
+    var expiresAt: Date? {
+        guard let expiry else { return nil }
+        return uploadedAt.addingTimeInterval(expiry.timeInterval)
     }
 
-    var subtitle: String {
-        switch self {
-        case .temporary: return "Up to 1 GB via Litterbox"
-        case .permanent: return "Up to 200 MB via Catbox"
-        }
-    }
-
-    var maxSize: Int64 {
-        switch self {
-        case .temporary: return Constants.litterboxMaxSize
-        case .permanent: return Constants.catboxMaxSize
-        }
+    var isExpired: Bool {
+        guard let expiresAt else { return false }
+        return Date() > expiresAt
     }
 }
 
-enum AppStorageStrings {
-    static let uploadMode = "com.aayush.opensource.upgood.uploadmode"
-    static let expiryOption = "com.aayush.opensource.upgood.expiry"
-    static let lastUploadURL = "com.aayush.opensource.upgood.lasturl"
-    static let showMenuBarExtra = "showMenuBarExtra"
+// MARK: - Shared Keys
+
+extension SharedKey where Self == AppStorageKey<String>.Default {
+    static var uploadMode: Self {
+        Self[.appStorage("uploadMode"), default: UploadMode.temporary.rawValue]
+    }
+    static var expiryOption: Self {
+        Self[.appStorage("expiryOption"), default: ExpiryOption.oneDay.rawValue]
+    }
+}
+
+extension SharedKey where Self == FileStorageKey<IdentifiedArrayOf<UploadRecord>>.Default {
+    static var uploadHistory: Self {
+        Self[
+            .fileStorage(.applicationSupportDirectory.appending(component: "upload-history.json")),
+            default: [],
+        ]
+    }
 }
